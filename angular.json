@@ -3,5 +3,99 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "@hostng/models": {
+      "projectType": "library",
+      "root": "projects/hostng/models",
+      "sourceRoot": "projects/hostng/models/src",
+      "prefix": "hostng",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/hostng/models/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/hostng/models/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/hostng/models/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/hostng/models/src/test.ts",
+            "tsConfig": "projects/hostng/models/tsconfig.spec.json",
+            "karmaConfig": "projects/hostng/models/karma.conf.js"
+          }
+        }
+      }
+    },
+    "@hostng/services": {
+      "projectType": "library",
+      "root": "projects/hostng/services",
+      "sourceRoot": "projects/hostng/services/src",
+      "prefix": "hostng",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/hostng/services/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/hostng/services/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/hostng/services/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/hostng/services/src/test.ts",
+            "tsConfig": "projects/hostng/services/tsconfig.spec.json",
+            "karmaConfig": "projects/hostng/services/karma.conf.js"
+          }
+        }
+      }
+    },
+    "@hostng/menu": {
+      "projectType": "library",
+      "root": "projects/hostng/menu",
+      "sourceRoot": "projects/hostng/menu/src",
+      "prefix": "hostng",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/hostng/menu/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/hostng/menu/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/hostng/menu/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/hostng/menu/src/test.ts",
+            "tsConfig": "projects/hostng/menu/tsconfig.spec.json",
+            "karmaConfig": "projects/hostng/menu/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "@hostng/menu"
 }

@@ -1,0 +1,70 @@
+.product-name {
+    font-weight: 700;
+  }
+  
+  .product-price {
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    align-self: flex-end;
+  }
+  
+  .product-grid-item {
+  
+  
+    .product-grid-item-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      height: 30%;
+      padding: 0.2rem 0 0.2rem 0;
+    }
+  
+    .product-grid-item-content {
+      text-align: center;
+      height: 40%;
+    }
+  
+    .product-price {
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+  }
+  
+  .card {
+    padding: 0.5rem;
+    box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14),
+      0 1px 3px 0 rgba(0, 0, 0, 0.12);
+    border-radius: 4px;
+    margin: 0.5rem;
+    height: 80%;
+  }
+  
+  .product-price {
+    align-self: center;
+  }
+  
+  .dialog-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .dialog-description {
+    margin-bottom: 0.5rem;
+  }
+  
+  .dialog-price {
+    margin-bottom: 0.5rem;
+  }
+  
+  .dialog-buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  .dialog-selectButton {
+    margin-bottom: 0.5rem;
+  }
+  

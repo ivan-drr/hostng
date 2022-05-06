@@ -1,0 +1,28 @@
+<p-dialog [header]="product ? product.name : ''" [(visible)]="show" [modal]="true"
+  [style]="{width: '360px'}" [baseZIndex]="10000" [draggable]="false" [resizable]="false" (onHide)="handleHide()">
+  <div [style]="{textAlign: 'center', marginBottom: '1rem'}">
+    <p-image src="https://www.primefaces.org/primeng/assets/showcase/images/galleria/galleria1.jpg" alt="Image"
+      height="200"></p-image>
+  </div>
+  <div class="p-grid p-fluid"
+    [style]="{width: '310px', margin: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center'}">
+
+    <div class="dialog-description" [style]="{marginBottom: '1rem'}">{{product ? product.description :
+      ''}}</div>
+
+    <div class="dialog-buttons">
+      <p-inputNumber [(ngModel)]="quantity" name="plates" [style]="{ width: '140px' }" buttonLayout="horizontal"
+        mode="decimal" [showButtons]="true" decrementButtonClass="p-button-secondary"
+        incrementButtonClass="p-button-secondary" inputId="minmax-buttons" [step]="1" [min]="1" [max]="99">
+      </p-inputNumber>
+    </div>
+
+    <div>
+      <button pButton type="button" [label]="product.price + '€'" [style]="{marginBottom: '1rem', marginTop: '0.15rem'}" [disabled]="true" class="p-button-outlined p-button-rounded p-button-info"></button>
+    </div>
+
+    <div [style]="{ width: '130px' }">
+      <button pButton pRipple type="button" label="Añadir" (click)="handleBuy()" class="p-button-primary" icon="pi pi-check"></button>
+    </div>
+  </div>
+</p-dialog>

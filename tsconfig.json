@@ -2,6 +2,20 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "paths": {
+      "@hostng/menu": [
+        "dist/hostng/menu/hostng-menu",
+        "dist/hostng/menu"
+      ],
+      "@hostng/models": [
+        "dist/hostng/models/hostng-models",
+        "dist/hostng/models"
+      ],
+      "@hostng/services": [
+        "dist/hostng/services/hostng-services",
+        "dist/hostng/services"
+      ]
+    },
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
