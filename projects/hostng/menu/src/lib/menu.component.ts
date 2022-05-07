@@ -1,5 +1,6 @@
-import { Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { MenuItem, SelectItem } from 'primeng/api';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { MenuItem } from 'primeng/api';
 import { Product } from '@hostng/models';
 import { DataView } from 'primeng/dataview';
 import { Subscription } from 'rxjs';
@@ -13,7 +14,8 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 })
 export class HtMenuComponent implements OnInit, OnDestroy {
 
-  @Input('rid') rid!: string;
+  paramSubscription!: Subscription;
+  rid!: string;
   @ViewChild('dataView') dataView!: DataView;
 
   showUniqueProduct: boolean = false;
@@ -27,21 +29,27 @@ export class HtMenuComponent implements OnInit, OnDestroy {
   categories!: MenuItem[];
   selectedCategory: any;
 
-  constructor(private afStore: AngularFirestore) { }
+  constructor(private activatedroute: ActivatedRoute, private afStore: AngularFirestore) { }
 
   ngOnInit(): void {
+    this.subscribeToParams();
     this.subscribeToProducts();
     this.subscribeToCategories();
 
+    this.initCategories()
     this.selectedCategory = this.categories[0].label;
   }
 
   ngOnDestroy(): void {
-    this.productSubscription.unsubscribe();
-    this.productSubscription.closed = true;
+    this.disrupSubscription(this.paramSubscription);
+    this.disrupSubscription(this.productSubscription);
+    this.disrupSubscription(this.categorySubscription);
+  }
 
-    this.categorySubscription.unsubscribe();
-    this.categorySubscription.closed = true;
+  subscribeToParams(): void {
+    this.paramSubscription = this.activatedroute.data
+      .subscribe(data => this.rid = data['rid']);
+    this.paramSubscription.closed = false;
   }
 
   subscribeToProducts(): void {
@@ -67,14 +75,31 @@ export class HtMenuComponent implements OnInit, OnDestroy {
 
     this.categorySubscription = productRef
       .valueChanges()
-      .subscribe(data => this.categories = data
-        .map((c) => {
-          return {
-            label: c['name'],
-            command: () => this.dataView.filter(c['name'])
-          }
-        }));
+      .subscribe(data => {
+        const afCategories = data
+          .map((c) => {
+            return {
+              label: c['name'],
+              command: () => this.dataView.filter(c['name'])
+            }
+          });
+        this.initCategories(afCategories);
+      });
     this.categorySubscription.closed = false;
+  }
+
+  disrupSubscription(sub: Subscription): boolean {
+    if (!sub) return false;
+    sub.unsubscribe();
+    sub.closed = true;
+    return sub.closed;
+  }
+
+  initCategories(data?: MenuItem[]): void {
+    this.categories = [{ label: 'Todo', command: () => this.dataView.filter('') }];
+
+    if (!data) return;
+    data.forEach((i) => this.categories.push(i));
   }
 
   handleCardClick(product: Product) {

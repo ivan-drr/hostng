@@ -1,5 +1,8 @@
 import { ModuleWithProviders, NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AngularFireModule, FIREBASE_OPTIONS } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { HtMenuRoutingModule } from './menu-routing.module';
 import { DataViewModule } from 'primeng/dataview';
 import { TabMenuModule } from 'primeng/tabmenu';
@@ -10,15 +13,17 @@ import { InputNumberModule } from 'primeng/inputnumber';
 
 import { HtMenuComponent } from './menu.component'; 
 import { SummarizeTextPipe } from './summarize-text.pipe';
-import { HtProductCardComponent } from '../public-api';
-import { HtRationProductComponent } from '../public-api';
-import { HtUniqueProductComponent } from '../public-api';
+import { HtProductCardComponent } from './product-card/product-card.component'; 
+import { HtRationProductComponent } from './ration-product/ration-product.component';
+import { HtUniqueProductComponent } from './unique-product/unique-product.component';
 import { FirebaseOptions } from '@angular/fire/app';
-import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 
 @NgModule({
   imports: [
     CommonModule,
+    AngularFireModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule,
     HtMenuRoutingModule,
     DataViewModule,
     TabMenuModule,
