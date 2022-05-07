@@ -8,7 +8,8 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 @Component({
   selector: 'ht-menu',
   templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss']
+  styleUrls: ['./menu.component.scss'],
+  providers: []
 })
 export class HtMenuComponent implements OnInit, OnDestroy {
 
