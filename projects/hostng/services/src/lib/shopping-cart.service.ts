@@ -10,11 +10,11 @@ export class ShoppingCartService {
 
   private products: CartProduct[] = [];
 
-  getProducts() {
+  getProducts(): CartProduct[] {
     return this.products;
   }
 
-  addRationProduct(product: Product, portion: ServingSize, quantity: number) {
+  addRationProduct(product: Product, portion: ServingSize, quantity: number): void {
     const productName = `${this.getPortionByName(portion)} ${product.name}`;
     let exist = false;
     this.products.forEach((cartProduct) => {
@@ -28,7 +28,7 @@ export class ShoppingCartService {
     if (!exist) this.products.push(new CartProduct(productName, this.getPriceFromPortion(product, portion), quantity));
   }
 
-  addUniqueProduct(product: Product, quantity: number) {
+  addUniqueProduct(product: Product, quantity: number): void {
     let exist = false;
     this.products.forEach((cartProduct) => {
       if(cartProduct.name == product.name) {
@@ -46,11 +46,11 @@ export class ShoppingCartService {
     this.products = filtered.slice();
   }
 
-  addQuantity(productName: string) {
+  addQuantity(productName: string): void {
     this.getProductByName(productName).quantity++;
   }
 
-  removeQuantity(productName: string) {
+  removeQuantity(productName: string): void {
     const product =this.getProductByName(productName);
 
     if(product.quantity <= 1) return;

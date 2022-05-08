@@ -3,6 +3,7 @@ import { MessageService } from 'primeng/api';
 import { Product } from '@hostng/models'; 
 import { ServingSize } from '@hostng/models';
 import { ShoppingCartService } from '@hostng/services';
+import { AngularFireStorage } from '@angular/fire/compat/storage';
 
 @Component({
   selector: 'ht-ration-product',
@@ -16,10 +17,12 @@ export class HtRationProductComponent implements OnInit {
   rationOptions: any;
   ration: any = 'one';
   quantity: any = 1;
+  imageUrl!: any;
 
-  constructor(private shoppingCart: ShoppingCartService, private messageService: MessageService) { }
+  constructor(private shoppingCart: ShoppingCartService, private afStorage: AngularFireStorage) { }
 
   ngOnInit() {
+    this.afStorage.ref(`/products/${this.product.name}.png`).getDownloadURL().subscribe(url => this.imageUrl = url);
     this.rationOptions = [
       { id: 'tapa', name: ServingSize.Tapa, disabled: this.product?.portions[0].price === -1 },
       { id: 'half', name: ServingSize.Half, disabled: this.product?.portions[1].price === -1 },

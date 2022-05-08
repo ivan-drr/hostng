@@ -1,7 +1,9 @@
 <p-card styleClass="p-card-shadow" [style]="{margin: '.5rem'}">
   <ng-template pTemplate="header">
     <button pButton pRipple type="button" icon="pi pi-plus" [style]="{position: 'absolute', margin: '.2rem'}" class="p-button-rounded"></button>
-    <p-image src="https://www.lacocinadelila.com/wp-content/uploads/2013/12/solomillo-a-la-pimienta-600x450.jpg" alt="product.name + '-image"></p-image>
+    <div [style]="{height: '70px', width: '140px', overflow: 'hidden',display: 'flex', alignItems: 'center'}">
+      <img src="{{imageUrl}}" [style]="{width: '140px', heigth: 'auto'}" alt="product.name + '-image"/>
+    </div>
     <button pButton type="button" [label]="product.name | summarizeText:[32]" class="p-button-text"
       [style]="{display: 'block', position: 'absolute'}"></button>
   </ng-template>

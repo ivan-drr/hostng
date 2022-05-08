@@ -1,8 +1,7 @@
 <p-dialog [header]="product ? product.name : ''" [(visible)]="show" [modal]="true"
   [style]="{width: '360px'}" [baseZIndex]="10000" [draggable]="false" [resizable]="false" (onHide)="handleHide()">
   <div [style]="{textAlign: 'center', marginBottom: '1rem'}">
-    <p-image src="https://www.primefaces.org/primeng/assets/showcase/images/galleria/galleria1.jpg" alt="Image"
-      height="200"></p-image>
+    <p-image src="{{imageUrl}}" width="100" alt="Image"></p-image>
   </div>
   <div class="p-grid p-fluid"
     [style]="{width: '310px', margin: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center'}">

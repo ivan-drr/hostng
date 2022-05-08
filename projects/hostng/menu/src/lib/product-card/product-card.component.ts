@@ -12,11 +12,12 @@ export class HtProductCardComponent implements OnInit {
   @Input() product!: Product;
   productImg!: string;
   currentRation!: boolean;
+  imageUrl!: any;
 
   constructor(private afStorage: AngularFireStorage) { }
 
   ngOnInit() {
-    this.afStorage.ref(`/products/${this.product.name}.png`).getDownloadURL();
+    this.afStorage.ref(`/products/${this.product.name}.png`).getDownloadURL().subscribe(url => this.imageUrl = url);
   }
 
   getPrice() {

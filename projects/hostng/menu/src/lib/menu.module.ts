@@ -7,13 +7,14 @@ import { HtMenuRoutingModule } from './menu-routing.module';
 import { DataViewModule } from 'primeng/dataview';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { DialogModule } from 'primeng/dialog';
+import { CardModule } from 'primeng/card';
 import { ImageModule } from 'primeng/image';
 import { ButtonModule } from 'primeng/button';
 import { InputNumberModule } from 'primeng/inputnumber';
 
-import { HtMenuComponent } from './menu.component'; 
+import { HtMenuComponent } from './menu.component';
 import { SummarizeTextPipe } from './summarize-text.pipe';
-import { HtProductCardComponent } from './product-card/product-card.component'; 
+import { HtProductCardComponent } from './product-card/product-card.component';
 import { HtRationProductComponent } from './ration-product/ration-product.component';
 import { HtUniqueProductComponent } from './unique-product/unique-product.component';
 import { FirebaseOptions } from '@angular/fire/app';
@@ -28,6 +29,7 @@ import { FirebaseOptions } from '@angular/fire/app';
     DataViewModule,
     TabMenuModule,
     DialogModule,
+    CardModule,
     ImageModule,
     ButtonModule,
     InputNumberModule
@@ -46,13 +48,13 @@ export class HtMenuModule {
   public static forRoot(firebaseConfig: FirebaseOptions): ModuleWithProviders<HtMenuModule> {
 
     return {
-        ngModule: HtMenuModule,
-        providers: [
-            {
-                provide: FIREBASE_OPTIONS,
-                useValue: firebaseConfig
-            }
-        ]
+      ngModule: HtMenuModule,
+      providers: [
+        {
+          provide: FIREBASE_OPTIONS,
+          useValue: firebaseConfig
+        }
+      ]
     };
-}
+  }
 }
