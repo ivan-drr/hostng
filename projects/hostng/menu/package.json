@@ -1,13 +1,13 @@
 {
   "name": "@hostng/menu",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "peerDependencies": {
     "@angular/cdk": "^13.3.6",
     "@angular/common": "^13.3.0",
     "@angular/core": "^13.3.0",
     "@angular/fire": "^7.3.0",
     "@hostng/models": "^0.0.1",
-    "@hostng/services": "^0.0.1",
+    "@hostng/services": "^0.0.3",
     "primeng": "^13.3.3"
   },
   "dependencies": {
