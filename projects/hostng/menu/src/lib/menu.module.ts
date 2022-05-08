@@ -1,15 +1,17 @@
-import { ModuleWithProviders, NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AngularFireModule, FIREBASE_OPTIONS } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { HtMenuRoutingModule } from './menu-routing.module';
+import { FormsModule } from '@angular/forms';
 import { DataViewModule } from 'primeng/dataview';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { DialogModule } from 'primeng/dialog';
 import { CardModule } from 'primeng/card';
 import { ImageModule } from 'primeng/image';
 import { ButtonModule } from 'primeng/button';
+import { SelectButtonModule } from 'primeng/selectbutton';
 import { InputNumberModule } from 'primeng/inputnumber';
 
 import { HtMenuComponent } from './menu.component';
@@ -26,12 +28,14 @@ import { FirebaseOptions } from '@angular/fire/app';
     AngularFirestoreModule,
     AngularFireStorageModule,
     HtMenuRoutingModule,
+    FormsModule,
     DataViewModule,
     TabMenuModule,
     DialogModule,
     CardModule,
     ImageModule,
     ButtonModule,
+    SelectButtonModule,
     InputNumberModule
   ],
   declarations: [
@@ -41,8 +45,7 @@ import { FirebaseOptions } from '@angular/fire/app';
     HtRationProductComponent,
     HtUniqueProductComponent
   ],
-  bootstrap: [HtMenuComponent],
-  schemas: [NO_ERRORS_SCHEMA]
+  bootstrap: [HtMenuComponent]
 })
 export class HtMenuModule {
   public static forRoot(firebaseConfig: FirebaseOptions): ModuleWithProviders<HtMenuModule> {
