@@ -2,7 +2,10 @@ import { DOCUMENT } from '@angular/common';
 import { Inject, Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 
-export class ThemeManager {
+@Injectable({
+    providedIn: 'root'
+})
+export class ThemingService {
     themes!: any;
     selectedTheme!: string;
     private themeLink!: HTMLLinkElement;
