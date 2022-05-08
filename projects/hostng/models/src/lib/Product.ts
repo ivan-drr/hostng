@@ -8,6 +8,6 @@ export class Product {
         this.description = description;
         this.category = category;
         this.portions = portions;
-        this.available = available
+        this.available = available;
     }
 }
