@@ -17,7 +17,7 @@
     </div>
 
     <div>
-      <button pButton type="button" [label]="product.price + '€'" [style]="{marginBottom: '1rem', marginTop: '0.15rem'}" [disabled]="true" class="p-button-outlined p-button-rounded p-button-info"></button>
+      <button pButton type="button" [label]="product.price * quantity + '€'" [style]="{marginBottom: '1rem', marginTop: '0.15rem'}" [disabled]="true" class="p-button-outlined p-button-rounded p-button-info"></button>
     </div>
 
     <div [style]="{ width: '130px' }">
